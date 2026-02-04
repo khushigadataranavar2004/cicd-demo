@@ -24,11 +24,16 @@ jobs:
           key: ${{ secrets.SSH_KEY }}         # your private SSH key
           port: 22
           script: |
-            echo "Deploying code to EC2..."
+            echo "Moving to project folder..."
             cd /var/www/cicd-demo || exit
-            # Force the server to sync with GitHub main branch
+            
+            echo "Cleaning up git state..."
             sudo git fetch --all
             sudo git reset --hard origin/main
-            # Restart the web server
+            
+            echo "Fixing permissions..."
+            sudo chown -R ubuntu:ubuntu /var/www/cicd-demo
+            
+            echo "Restarting Nginx..."
             sudo systemctl restart nginx
             echo "Deployment complete ✅"
