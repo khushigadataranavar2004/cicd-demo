@@ -1,0 +1,10 @@
+- name: Deploy to EC2 via SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "index.html"
+          target: "/var/www/cicd-demo/" 
+          strip_components: 0
+          overwrite: true
