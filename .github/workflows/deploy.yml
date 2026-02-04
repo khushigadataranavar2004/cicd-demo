@@ -26,6 +26,9 @@ jobs:
           script: |
             echo "Deploying code to EC2..."
             cd /var/www/cicd-demo || exit
-            git pull
+            # Force the server to sync with GitHub main branch
+            sudo git fetch --all
+            sudo git reset --hard origin/main
+            # Restart the web server
             sudo systemctl restart nginx
             echo "Deployment complete ✅"
