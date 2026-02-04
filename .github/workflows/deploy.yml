@@ -1,0 +1,31 @@
+name: CI/CD Demo Deployment
+
+# Trigger this workflow on push to main branch
+on:
+  push:
+    branches:
+      - main  # replace with your branch if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout your repo code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Deploy to EC2 via SSH
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}       # your EC2 public IP
+          username: ${{ secrets.SSH_USER }}   # EC2 username (ubuntu/ec2-user)
+          key: ${{ secrets.SSH_KEY }}         # your private SSH key
+          port: 22
+          script: |
+            echo "Deploying code to EC2..."
+            cd /var/www/cicd-demo || exit
+            git pull
+            sudo systemctl restart nginx
+            echo "Deployment complete ✅"
