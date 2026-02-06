@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CI/CD Demo - Live</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Pipeline | Live Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 8px solid #2ecc71; /* Success Green */
+            max-width: 500px;
+        }
+        .badge {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        h1 { color: #2c3e50; margin: 0 0 10px 0; }
+        p { color: #7f8c8d; line-height: 1.6; }
+        .tech-stack {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .tech-item {
+            font-size: 0.8em;
+            background: #eee;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #555;
+        }
+    </style>
 </head>
-<body style="background-color: rgb(230, 13, 13); color: black; font-family: sans-serif; padding: 50px;">
-  <h1>🚀 DEPLOYMENT TEST - VERSION 100 </h1>
-  <p>Status: <strong>Confirmed Live!</strong></p>
-  <p>This page was deployed automatically via GitHub Actions + SSH.</p>
+<body>
+
+    <div class="card">
+        <div class="badge">● SYSTEM OPERATIONAL</div>
+        <h1>🚀 CI/CD DEPLOYMENT</h1>
+        <p><strong>VERSION:</strong> 1.0.2</p>
+        <p>This application was deployed using a <strong>GitHub Actions</strong> workflow via a secure <strong>SSH Tunnel</strong> to <strong>AWS EC2</strong>.</p>
+        
+        <div class="tech-stack">
+            <span class="tech-item">GitHub</span>
+            <span class="tech-item">Actions</span>
+            <span class="tech-item">SSH</span>
+            <span class="tech-item">AWS EC2</span>
+            <span class="tech-item">Nginx</span>
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+        <p style="font-size: 0.8em;">Status: <span style="color: #27ae60;">Verified Stable ✅</span></p>
+    </div>
+
 </body>
 </html>
